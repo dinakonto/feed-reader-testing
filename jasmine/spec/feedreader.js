@@ -13,7 +13,7 @@ $(function() {
      * the allFeeds variable in our application.
     */
     describe('RSS Feeds', function() {
-        /* Test that the allFeeds variable has been defined
+        /* Tests that the allFeeds variable has been defined
          * and that it is not empty.
          */
         it('are defined', function() {
@@ -21,7 +21,7 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-        /* Test loops through each feed in the allFeeds object and
+        /* Loops through each feed in the allFeeds object and
          * ensures it has a URL defined and that the URL is not empty.
          */
          it('have a URL defined', function() {
@@ -31,7 +31,7 @@ $(function() {
            }
          })
 
-        /* Test loops through each feed in the allFeeds object and
+        /* Loops through each feed in the allFeeds object and
          * ensures it has a name defined and that the name is not empty.
          */
          it('have a name defined', function() {
@@ -45,13 +45,15 @@ $(function() {
 
     /* Test suite covering the side menu */
     describe('The menu', function() {
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
+      let body;
+        beforeEach(function() {
+          body = $('body');
+        })
+        /* Test that the menu element is hidden by default.
          */
          it('is hidden by default', function() {
-
+           expect(body.attr('class')).toEqual('menu-hidden'); // Not sure if this is robst enough...
+           // TODO: Investigate ways to check if element is visible on screen
          })
 
          /* TODO: Write a test that ensures the menu changes
@@ -85,7 +87,7 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
          it('changes the page content', function() {
-           
+
          })
     })
 
