@@ -45,24 +45,28 @@ $(function() {
 
     /* Test suite covering the side menu */
     describe('The menu', function() {
-      let body;
+      let body,
+          menuIcon = $('.menu-icon-link');;
         beforeEach(function() {
           body = $('body');
+          // done();
         })
         /* Test that the menu element is hidden by default.
          */
          it('is hidden by default', function() {
-           expect(body.attr('class')).toEqual('menu-hidden'); // Not sure if this is robst enough...
+           expect(body.attr('class')).toEqual('menu-hidden');
+           // Not sure if this is robust enough?
+           // What if the properties within the class are changed?
            // TODO: Investigate ways to check if element is visible on screen
          })
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
+         /* Test that the menu changes visibility when the menu icon is clicked.
           */
           it('toggles visibility when icon is clicked', function() {
-
+            menuIcon.click();
+            expect(body.attr('class')).not.toEqual('menu-hidden');
+            menuIcon.click();
+            expect(body.attr('class')).toEqual('menu-hidden');
           })
     });
 
