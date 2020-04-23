@@ -53,12 +53,12 @@ $(function() {
          })
 
          // Test that the menu changes visibility when the menu icon is clicked.
-          // it('toggles visibility when icon is clicked', function() {
-          //   menuIcon.click();
-          //   expect(body.hasClass('menu-hidden')).toBe(false);
-          //   menuIcon.click();
-          //   expect(body.hasClass('menu-hidden')).toBe(true);
-          // })
+          it('toggles visibility when icon is clicked', function() {
+            menuIcon.click();
+            expect(body.hasClass('menu-hidden')).toBe(false);
+            menuIcon.click();
+            expect(body.hasClass('menu-hidden')).toBe(true);
+          })
     });
 
 
