@@ -87,12 +87,27 @@ $(function() {
 
     /* Test suite covering new feed selection */
     describe('New Feed Selection', function() {
+        let oldLink,
+            newLink;
+
+        beforeEach(function(done) {
+          loadFeed(0, function() {
+            oldLink = $('.entry-link').attr('href');
+            console.log(oldLink);
+          });
+          loadFeed(1, function() {
+            newLink = $('.entry-link').attr('href');
+            console.log(newLink);
+            done();
+          });
+        });
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
          it('changes the page content', function() {
-
+           expect(oldLink === newLink).toBe(false);
+           console.log(`expect ${oldLink} not to equal ${newLink}`)
          })
     })
 
