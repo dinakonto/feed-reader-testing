@@ -45,11 +45,11 @@ $(function() {
 
     /* Test suite covering the side menu */
     describe('The menu', function() {
-      let body,
-          menuIcon = $('.menu-icon-link');;
-        beforeEach(function() {
+        let body,
+            menuIcon = $('.menu-icon-link');
+        beforeEach(function(done) {
           body = $('body');
-          // done();
+          done();
         })
         /* Test that the menu element is hidden by default.
          */
@@ -73,14 +73,15 @@ $(function() {
 
     /* Test suite covering the initial feed entries */
     describe('Initial Entries', function() {
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
+          beforeEach(function(done) {
+            loadFeed(0, done);
+          });
+        /* Tests that when the loadFeed() is called and completes its work,
+         * there is at least a single .entry element within the .feed container.
          */
-         it('contains at least one entry', function() {
-
+         it('contain at least one entry', function() {
+           const entry = $('.feed .entry');
+           expect(entry.length).toBeGreaterThan(0); // .feed contains at least one .entry
          })
     })
 
